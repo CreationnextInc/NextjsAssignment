@@ -3,10 +3,11 @@ import { Box, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 type Props = {
+  searchValue: string;
   setSearchValue: Dispatch<SetStateAction<string>>;
 };
 
-export const Filters: FC<Props> = ({ setSearchValue }) => {
+export const Filters: FC<Props> = ({ searchValue, setSearchValue }) => {
   return (
     <Box
       sx={{

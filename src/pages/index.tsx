@@ -55,7 +55,7 @@ const Home: NextPage = () => {
           }}
         >
           {/* filters */}
-          <Filters setSearchValue={setSearchValue} />
+          <Filters searchValue={searchValue} setSearchValue={setSearchValue} />
           {/* pagination */}
           <Pagination
             count={Math.ceil(filteredProducts?.length / ITEMS_PER_PAGE)}
