@@ -1,11 +1,32 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import { useState } from "react";
+import { NextPage } from "next";
+import Head from "next/head";
+import { Box, Grid, Pagination, Typography } from "@mui/material";
+import useProducts from "@/api/useProducts";
+import { Filters } from "@/components/Filters";
+import { ProductCard } from "@/components/ProductCard";
+import { useDebounce } from "@/hooks/useDebounce";
+import { ITEMS_PER_PAGE } from "@/lib/constants";
+import ProductsLoader from "@/ui/ProductsLoader";
 
-const inter = Inter({ subsets: ['latin'] })
+const Home: NextPage = () => {
+  const { data, isLoading, error } = useProducts();
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
 
-export default function Home() {
+  // debouncing
+  const debouncedSearchValue = useDebounce(searchValue, 300);
+
+  // search filter
+  const filteredProducts = data?.filter((product) =>
+    product.title.toLowerCase().includes(debouncedSearchValue.toLowerCase())
+  );
+
+  // pagination logic
+  const startIndex = (page - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedProducts = filteredProducts?.slice(startIndex, endIndex);
+
   return (
     <>
       <Head>
@@ -14,36 +35,62 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Next.js Product Catalog App
-          </p>
-          <div>
-            <a
-              href="https://data-masher.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              DataMasher{' '}
-              <Image
-                src="/logo.png"
-                alt="Vercel Logo"
-                width={50}
-                height={50}
-                priority
-              />
-            </a>
-          </div>
-        </div>
 
-        <div className={styles.center}>
-          Please check all the assignment details in the README.md file/section.
-        </div>
-
-        <div>
-        </div>
-      </main>
+      <Box component="main">
+        <Typography align="center" variant="h2" component="h1">
+          NextJs Product Catalog
+        </Typography>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          component="section"
+          gap={2}
+          p="20px 0px"
+          sx={{
+            flexDirection: {
+              md: "row",
+              xs: "column",
+            },
+          }}
+        >
+          {/* filters */}
+          <Filters setSearchValue={setSearchValue} />
+          {/* pagination */}
+          <Pagination
+            count={Math.ceil(filteredProducts?.length / ITEMS_PER_PAGE)}
+            page={page}
+            onChange={(event, value) => setPage(value)}
+            variant="outlined"
+          />
+        </Box>
+        <Box component="section">
+          <Grid container spacing={3}>
+            {/* products loader */}
+            {isLoading &&
+              Array.from({ length: 4 }).map((_, i) => (
+                <ProductsLoader key={i} />
+              ))}
+            {/* products */}
+            {paginatedProducts &&
+              !isLoading &&
+              paginatedProducts.map((p: any) => (
+                <Grid item xs={12} sm={6} lg={3} key={p.id}>
+                  <ProductCard product={p} />
+                </Grid>
+              ))}
+            {/* error handling */}
+            {error && (
+              <Box p={3}>
+                <Typography variant="h5" color="red">
+                  {`Oops! ${error}`}
+                </Typography>
+              </Box>
+            )}
+          </Grid>
+        </Box>
+      </Box>
     </>
-  )
-}
+  );
+};
+export default Home;
