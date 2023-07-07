@@ -1,50 +1,53 @@
 # Next.js Product Catalog App
 
-Welcome to the Next.js Product Catalog App assignment! This project aims to assess your abilities in developing a Next.js application that fetches data from an API, utilizes React hooks, writes clean TypeScript code, and integrates Material-UI for UI components.
+Welcome to the Next.js Product Catalog App! This application is a product catalog that fetches data from an API and displays it using Material-UI components. Users can browse through a list of products and view detailed information about each product.
 
-## Assignment Description
+# Features
 
-In this assignment, you will create a product catalog application that fetches product data from a dummy API and displays it using Material-UI components. The application should have the following features:
+- **Product Catalog Page:** Displays a list of products fetched from the API. Each product card shows the product name, price, image, rating, and description.
+- **Product Detail Page:** Provides detailed information about a selected product. Clicking on a product card on the catalog page navigates to this page.
 
-- **Product Catalog Page:** Implement a page that displays a list of products fetched from the dummy API. Each product card should show the product name, price, image, and description.
+# Technologies Used
 
-- **Product Detail Page:** Implement a page that shows detailed information about a selected product. Clicking on a product card on the catalog page should navigate to this detail page. Display the product name, price, image, and description on this page.
+- **Next.js:** A React framework for building server-rendered applications.
+- **React:** A JavaScript library for building user interfaces.
+- **Material-UI:** A popular UI component library for React applications.
+- **TypeScript:** A statically typed superset of JavaScript that helps catch errors and improve code quality.
 
-## Requirements
+# Getting Started
 
-To successfully complete the assignment, you should fulfill the following requirements:
+To run the Next.js Product Catalog App locally, follow these steps:
 
+Clone the repository:
 
-- Fetch the product data from the provided dummy API endpoints:
-    - Product catalog: `https://dummyapi.online/api/products`
-    - Product detail: `https://dummyapi.online/api/products/{product_id}`
+shell
+Copy code
+git clone <https://github.com/CreationnextInc/NextjsAssignment.git>
+Install dependencies:
 
-- Utilize React hooks, to manage the application state and handle data fetching.
+shell
+Copy code
+cd nextjs-product-catalog-app
+npm install
+Run the development server:
 
-- Write clean and modular code using TypeScript and proper separation of concerns.
+shell
+Copy code
+npm run dev
+The app will be available at http://localhost:3000.
 
-- Implement error handling in case the API requests fail or return error responses.
+# API Integration
 
-- Utilize Material-UI components for building the UI elements, such as product lists, product cards, and page layouts. Implement basic styling for the pages.
+The product data is fetched from a dummy API. The API endpoints used are:
 
-- Set up a GitHub repository to host your project and use Git for version control.
+- **Product catalog:** https://fakestoreapi.com/products
+- **Product detail:** https://fakestoreapi.com/products/{product_id}
+  You can modify the API endpoints in the codebase to integrate with your own backend or use a different API as per your requirements.
 
-## Bonus (optional):
-- Add pagination or infinite scrolling to the product catalog page.
-- Implement filtering or sorting options for the product list.
-- Enhance the UI with responsive design and transitions/animations.
-- Implement unit tests for at least one component or function of your choice using a testing library like Jest or React Testing Library.
+Folder Structure
+The project structure is as follows:
 
-## Submission
+Deployment
+The Next.js Product Catalog App can be deployed to any hosting platform that supports Next.js applications. Some popular options include Vercel, Netlify, and Heroku. Follow the platform-specific deployment instructions to host your app.
 
-Once you have completed the assignment, please provide the following:
-
-- Share the link to your GitHub repository.
-
-## Questions or Issues
-
-If you have any questions or encounter any issues during the assignment, feel free to reach out to us.
-
-We wish you the best of luck with the assignment! We look forward to reviewing your work.
-
-
+I hope this README template helps you provide a clear and informative overview of your Next.js Product Catalog App.
