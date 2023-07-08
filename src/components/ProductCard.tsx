@@ -1,5 +1,6 @@
 import React from "react";
 import { FC } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
@@ -12,8 +13,6 @@ import {
   Rating,
 } from "@mui/material";
 import { Product } from "@/types";
-import Link from "next/link";
-import styles from "@/styles/Home.module.css";
 
 type Props = {
   product: Product;
@@ -28,16 +27,16 @@ export const ProductCard: FC<Props> = ({ product }) => {
     >
       <Link
         href={{
-          pathname: "/[id]",
+          pathname: "/products/[id]",
           query: {
             id: product.id,
           },
         }}
         passHref
       >
-        <Box className={`${styles.image_container}`}>
+        <Box className={`image_container`}>
           <Image
-            className={`${styles.prod_img}`}
+            className={`prod_img`}
             src={product.image}
             alt={product.title}
             fill={true}
@@ -50,7 +49,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
         <Typography variant="h6" noWrap>
           <Link
             href={{
-              pathname: "/[id]",
+              pathname: "/products/[id]",
               query: {
                 id: product.id,
               },

@@ -43,7 +43,7 @@ const ProductDetail: NextPage = () => {
         {/* product detail */}
         {data && !isLoading && (
           <React.Fragment>
-            <Box px={5} className={`${styles.image_container}`}>
+            <Box px={5} className={`image_container`}>
               <Link href="/">
                 <Button
                   variant="contained"
@@ -62,7 +62,7 @@ const ProductDetail: NextPage = () => {
               </Link>
 
               <Image
-                className={`${styles.prod_img}`}
+                className={`prod_img`}
                 src={data.image}
                 alt={data.title}
                 fill={true}
