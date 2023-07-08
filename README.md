@@ -18,23 +18,25 @@ Welcome to the Next.js Product Catalog App! This application is a product catalo
 
 To run the Next.js Product Catalog App locally, follow these steps:
 
-Clone the repository:
+- **Clone the repository:**
 
-shell
-Copy code
 git clone <https://github.com/CreationnextInc/NextjsAssignment.git>
-Install dependencies:
 
-shell
-Copy code
+- **Install dependencies:**
+
 cd nextjs-product-catalog-app
 npm install
-Run the development server:
 
-shell
-Copy code
+- **Run the development server:**
+
 npm run dev
 The app will be available at http://localhost:3000.
+
+# Tests
+
+- **Run the tests:**
+
+npx jest
 
 # API Integration
 
@@ -42,10 +44,6 @@ The product data is fetched from a dummy API. The API endpoints used are:
 
 - **Product catalog:** https://fakestoreapi.com/products
 - **Product detail:** https://fakestoreapi.com/products/{product_id}
-  You can modify the API endpoints in the codebase to integrate with your own backend or use a different API as per your requirements.
-
-Folder Structure
-The project structure is as follows:
 
 Deployment
 The Next.js Product Catalog App can be deployed to any hosting platform that supports Next.js applications. Some popular options include Vercel, Netlify, and Heroku. Follow the platform-specific deployment instructions to host your app.
