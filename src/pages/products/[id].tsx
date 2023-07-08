@@ -43,22 +43,21 @@ const ProductDetail: NextPage = () => {
         {data && !isLoading && (
           <React.Fragment>
             <Box px={5} className={`image_container`}>
-              <Link href="/">
-                <Button
-                  variant="contained"
-                  startIcon={<KeyboardBackspaceIcon />}
-                  sx={{
-                    borderRadius: "0",
-                    width: "100%",
-                    fontWeight: "bold",
-                    p: "10px 5px",
-                    mb: "15px",
-                  }}
-                >
-                  {" "}
-                  All Products
-                </Button>
-              </Link>
+              <Button
+                variant="contained"
+                startIcon={<KeyboardBackspaceIcon />}
+                sx={{
+                  borderRadius: "0",
+                  width: "100%",
+                  fontWeight: "bold",
+                  p: "10px 5px",
+                  mb: "15px",
+                }}
+                onClick={() => router.back()}
+              >
+                {" "}
+                All Products
+              </Button>
 
               <Image
                 className={`prod_img`}
