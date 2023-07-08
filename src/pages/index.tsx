@@ -1,9 +1,9 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import { Box, Button, Typography } from "@mui/material";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import styles from "@/styles/Home.module.css";
-import Link from "next/link";
 
 const Home: NextPage = () => {
   return (

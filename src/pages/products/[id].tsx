@@ -1,4 +1,6 @@
+import React from "react";
 import { NextPage } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import {
@@ -11,9 +13,6 @@ import {
 } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import useProductDetail from "@/api/useProductDetail";
-import Link from "next/link";
-import styles from "@/styles/Home.module.css";
-import React from "react";
 import ProductDetailLoader from "@/ui/ProductDetailLoader";
 
 const ProductDetail: NextPage = () => {
